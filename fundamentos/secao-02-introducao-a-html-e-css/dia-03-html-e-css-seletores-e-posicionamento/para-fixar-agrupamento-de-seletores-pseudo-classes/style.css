@@ -1,0 +1,18 @@
+h1,
+p {
+    text-align: center;
+}
+
+li:hover {
+    background-color: aquamarine;
+    width: 150px;
+}
+
+li:active {
+    color: blueviolet;
+}
+
+ol, ul{
+    list-style-type: lower-latin;
+    
+}
