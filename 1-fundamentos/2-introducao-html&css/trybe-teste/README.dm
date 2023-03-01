@@ -1,1 +1,0 @@
-Aqui ficarão os testes de exercícios durante as aulas e explicações.
