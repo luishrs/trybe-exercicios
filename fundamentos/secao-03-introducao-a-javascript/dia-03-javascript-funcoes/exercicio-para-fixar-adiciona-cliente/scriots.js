@@ -1,6 +1,6 @@
 let clientesTrybeBank = ['Ada', 'John', 'Gus'];
 
-function addClient(cliente) {
+function deleteClient(cliente) {
     if (typeof cliente === 'string') {
         clientesTrybeBank.push(cliente);
         return 'Cliente adicionado com sucesso!';
@@ -8,6 +8,6 @@ function addClient(cliente) {
         return 'O parâmetro deve ser uma string!';
     }
 }
-console.log(addClient(true));
-console.log(addClient('Eva'));
+console.log(deleteClient(true));
+console.log(deleteClient('Eva'));
 console.log(clientesTrybeBank);
