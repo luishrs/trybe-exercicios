@@ -1,7 +1,6 @@
-const person = {fname:"John", lname:"Doe", age:25};
-
-let text = "";
-for (let x in person) {
-  text += person[2];
-}
-console.log(text[2]);
+let top3Albums = {
+  1: 'Nightfall in Middle-Earth',
+  2: 'Imaginations from the Other Side',
+  3: 'Somewhere Far Beyond',
+};
+console.log(Object.entries(top3Albums));
