@@ -32,3 +32,16 @@ function objectSize(obj) {
    return Object.keys(obj).length;
 }
 console.log(objectSize(lesson2));
+
+function listKeys(obj) {
+    return Object.values(obj)
+}
+console.log(listKeys(lesson1));
+
+let allLessons = Object.assign({}, {
+   lesson1: lesson1,
+   lesson2: lesson2,
+   lesson3: lesson3,    
+});
+
+console.log(allLessons);
