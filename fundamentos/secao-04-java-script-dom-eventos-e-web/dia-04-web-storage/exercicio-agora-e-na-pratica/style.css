@@ -29,7 +29,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
     margin: 15px;
+    font-size: ;
   }
   .paragraph {
     display: flex;

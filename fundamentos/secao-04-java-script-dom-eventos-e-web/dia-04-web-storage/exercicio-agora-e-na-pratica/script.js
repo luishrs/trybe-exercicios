@@ -1,5 +1,5 @@
 window.onload = () => {
-
+    // função altera background color
     const backgroundColor = () => {
         const teste = document.querySelectorAll('#background-color button');
         document.body.style.backgroundColor = localStorage.getItem('lastcolor');
@@ -12,20 +12,23 @@ window.onload = () => {
     }
     backgroundColor();
 
-    // const content = document.querySelectorAll('.paragraph');
-    // console.log(content);
+    // função altera a cor da fonte de todos os paragrafos
     const collortext = () => {
+        const paragraps = document.querySelector('.content');
+        paragraps.style.color = localStorage.getItem('lastfont');
+
         const fontcolor = document.querySelectorAll('#font-color button');
         for (let index = 0; index < fontcolor.length; index += 1) {
-            console.log(fontcolor[index]);
+
             fontcolor[index].addEventListener('click', () => {
                 localStorage.setItem('lastfont', fontcolor[index].innerHTML);
-                const content = document.querySelectorAll('.paragraph');
-                for (let index2 = 0; index2 < content.length; index2 += 1) {
-                    content[index2].style.color = localStorage.getItem('lastfont');
-                    console.log(content[index]);
+                const paragraps = document.querySelector('.content');
+                console.log(paragraps);
+                paragraps.style.color = localStorage.getItem('lastfont');
 
-                }
+                // paragraps.style.collortext = localStorage.getItem('lastforcolor');
+
+
             })
         }
     }
@@ -33,6 +36,7 @@ window.onload = () => {
     console.log(localStorage.getItem('lastfont'));
 
 
-}
 
+
+}
 
