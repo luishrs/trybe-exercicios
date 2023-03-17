@@ -23,7 +23,6 @@ window.onload = () => {
             fontcolor[index].addEventListener('click', () => {
                 localStorage.setItem('lastfont', fontcolor[index].innerHTML);
                 const paragraps = document.querySelector('.content');
-                console.log(paragraps);
                 paragraps.style.color = localStorage.getItem('lastfont');
 
                 // paragraps.style.collortext = localStorage.getItem('lastforcolor');
@@ -33,8 +32,27 @@ window.onload = () => {
         }
     }
     collortext();
-    console.log(localStorage.getItem('lastfont'));
+    
+    const fontSize = () => {
+        let lastfont = document.querySelector('#font-size');        
+        const lastfont2 = parseInt(localStorage.getItem('fontSize'));
+        console.log(`${lastfont2}px`);
+        lastfont.style.fontSize = `${lastfont2}px`;
+        console.log(lastfont);
 
+        const fontOptions = document.querySelectorAll('#font-size button');
+        for (let index = 0; index < fontOptions.length; index += 1) {
+            fontOptions[index].addEventListener('click', () => {
+                lastfont.style.fontSize = fontOptions[index].innerHTML;
+                
+                localStorage.setItem('fontSize', fontOptions[index].innerHTML);
+            });
+            
+        }
+       
+        
+    }
+    fontSize();
 
 
 
