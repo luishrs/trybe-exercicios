@@ -34,18 +34,20 @@ window.onload = () => {
     collortext();
     
     const fontSize = () => {
-        let lastfont = document.querySelector('#font-size');        
-        const lastfont2 = parseInt(localStorage.getItem('fontSize'));
-        console.log(`${lastfont2}px`);
-        lastfont.style.fontSize = `${lastfont2}px`;
-        console.log(lastfont);
+        const lastfont = document.querySelector('.content');        
+        const lastfont2 = localStorage.getItem('fontSize');        
+        lastfont.style.fontSize = (`${lastfont2}px`);
+        
 
-        const fontOptions = document.querySelectorAll('#font-size button');
+        const fontOptions = document.getElementsByClassName('fontButton');
         for (let index = 0; index < fontOptions.length; index += 1) {
             fontOptions[index].addEventListener('click', () => {
-                lastfont.style.fontSize = fontOptions[index].innerHTML;
+                const size = parseInt(fontOptions[index].innerHTML);
+                console.log(size);
+                lastfont.style.fontSize = `${size}px`;
                 
-                localStorage.setItem('fontSize', fontOptions[index].innerHTML);
+                
+                localStorage.setItem('fontSize', size);
             });
             
         }
