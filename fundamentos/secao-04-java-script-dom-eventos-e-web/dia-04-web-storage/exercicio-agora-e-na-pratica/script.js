@@ -1,23 +1,25 @@
 window.onload = () => {
     // função altera background color
-    const backgroundColor = () => {
+    const setBackgroundColor = () => {
         const backOptions = document.querySelectorAll('#background-color button');
         document.body.style.backgroundColor = localStorage.getItem('lastcolor');
+
         for (let index = 0; index < backOptions.length; index += 1) {
             backOptions[index].addEventListener('click', () => {
                 document.body.style.backgroundColor = backOptions[index].innerHTML
                 localStorage.setItem('lastcolor', backOptions[index].innerHTML);
             });
         }
+
     }
-    backgroundColor();
+    setBackgroundColor();
 
     // função altera a cor da fonte de todos os paragrafos
-    const collortext = () => {
+    const setCollortext = () => {
         const paragraps = document.querySelector('.content');
         paragraps.style.color = localStorage.getItem('lastfont');
-
         const fontcolor = document.querySelectorAll('#font-color button');
+
         for (let index = 0; index < fontcolor.length; index += 1) {
 
             fontcolor[index].addEventListener('click', () => {
@@ -26,19 +28,19 @@ window.onload = () => {
                 paragraps.style.color = localStorage.getItem('lastfont');
             })
         }
-    }
-    collortext();
 
-    // console.log(paragraphContent);
+    }
+    setCollortext();    
     
     // função troca font dos paragrafos e grana no localstorage.
     
-    const fontSize = () => {
+    const setFontSize = () => {
         
         const paragraphContent = document.querySelector('.content');
         const lastfont2 = localStorage.getItem('fontSize');
         paragraphContent.style.fontSize = (`${lastfont2}px`);
         const fontOptions = document.getElementsByClassName('fontButton');
+
         for (let index = 0; index < fontOptions.length; index += 1) {
             fontOptions[index].addEventListener('click', () => {
                 const size = parseInt(fontOptions[index].innerHTML);
@@ -46,37 +48,43 @@ window.onload = () => {
                 localStorage.setItem('fontSize', size);
             });
         }
+
     }
-    fontSize();
+    setFontSize();    
 
-    
+    //funão troca o espaçamento de linhas.
 
-    const lineHeigth = () => {
+    const setLineHeigth = () => {
         const lastLineHeight = localStorage.getItem('lineHeight');
         const paragraphContent = document.querySelector('.content');
         paragraphContent.style.lineHeight = lastLineHeight;
         const lineOptions = document.querySelectorAll('#line-height>button');
-        console.log(lineOptions);
-        for (let index = 0; index < lineOptions.length; index += 1) {
-            console.log(lineOptions[index].innerHTML);
+
+        for (let index = 0; index < lineOptions.length; index += 1) {            
             lineOptions[index].addEventListener('click', () => {
                 paragraphContent.style.lineHeight = lineOptions[index].innerHTML;
                 localStorage.setItem('lineHeight', lineOptions[index].innerHTML);
             })
         }
+
     }
-    lineHeigth();
+    setLineHeigth();
 
+    //função troca tipo da fonte.
 
-
-    // for (let index = 0; index < lineOptions.length; index += 1) {
-    //     lineOptions[index].addEventListener('click', () => {
-    //         // console.log(lineOptions[index]);
-    //         const heights = lineOptions[index].innerHTML;
-    //         paragraphContent.style.lineHeigth = heights;
-    //         console.log(heights);
-    
-    //     })
-    
-    // }
+    const setTypeFont = () => {
+        const paragraphContent = document.querySelector('.content');
+        const lastTypeFont = localStorage.getItem('lastTypeFont');
+        paragraphContent.style.fontFamily = lastTypeFont;
+        const fontButtons = document.querySelectorAll('#font-family>button');
+        console.log(fontButtons);
+        for (let index = 0; index < fontButtons.length; index += 1) {
+            fontButtons[index].addEventListener('click', () =>{
+                paragraphContent.style.fontFamily = fontButtons[index].innerHTML
+                localStorage.setItem('lastTypeFont', fontButtons[index].innerHTML);
+            })
+            
+        }
+    }
+    setTypeFont();    
 }
