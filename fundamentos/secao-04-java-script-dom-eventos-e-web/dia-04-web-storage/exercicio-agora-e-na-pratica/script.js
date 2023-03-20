@@ -1,12 +1,12 @@
 window.onload = () => {
     // função altera background color
     const backgroundColor = () => {
-        const teste = document.querySelectorAll('#background-color button');
+        const backOptions = document.querySelectorAll('#background-color button');
         document.body.style.backgroundColor = localStorage.getItem('lastcolor');
-        for (let index = 0; index < teste.length; index += 1) {
-            teste[index].addEventListener('click', () => {
-                document.body.style.backgroundColor = teste[index].innerHTML
-                localStorage.setItem('lastcolor', teste[index].innerHTML);
+        for (let index = 0; index < backOptions.length; index += 1) {
+            backOptions[index].addEventListener('click', () => {
+                document.body.style.backgroundColor = backOptions[index].innerHTML
+                localStorage.setItem('lastcolor', backOptions[index].innerHTML);
             });
         }
     }
@@ -24,39 +24,59 @@ window.onload = () => {
                 localStorage.setItem('lastfont', fontcolor[index].innerHTML);
                 const paragraps = document.querySelector('.content');
                 paragraps.style.color = localStorage.getItem('lastfont');
-
-                // paragraps.style.collortext = localStorage.getItem('lastforcolor');
-
-
             })
         }
     }
     collortext();
+
+    // console.log(paragraphContent);
+    
+    // função troca font dos paragrafos e grana no localstorage.
     
     const fontSize = () => {
-        const lastfont = document.querySelector('.content');        
-        const lastfont2 = localStorage.getItem('fontSize');        
-        lastfont.style.fontSize = (`${lastfont2}px`);
         
-
+        const paragraphContent = document.querySelector('.content');
+        const lastfont2 = localStorage.getItem('fontSize');
+        paragraphContent.style.fontSize = (`${lastfont2}px`);
         const fontOptions = document.getElementsByClassName('fontButton');
         for (let index = 0; index < fontOptions.length; index += 1) {
             fontOptions[index].addEventListener('click', () => {
                 const size = parseInt(fontOptions[index].innerHTML);
-                console.log(size);
-                lastfont.style.fontSize = `${size}px`;
-                
-                
+                paragraphContent.style.fontSize = `${size}px`;
                 localStorage.setItem('fontSize', size);
             });
-            
         }
-       
-        
     }
     fontSize();
 
+    
+
+    const lineHeigth = () => {
+        const lastLineHeight = localStorage.getItem('lineHeight');
+        const paragraphContent = document.querySelector('.content');
+        paragraphContent.style.lineHeight = lastLineHeight;
+        const lineOptions = document.querySelectorAll('#line-height>button');
+        console.log(lineOptions);
+        for (let index = 0; index < lineOptions.length; index += 1) {
+            console.log(lineOptions[index].innerHTML);
+            lineOptions[index].addEventListener('click', () => {
+                paragraphContent.style.lineHeight = lineOptions[index].innerHTML;
+                localStorage.setItem('lineHeight', lineOptions[index].innerHTML);
+            })
+        }
+    }
+    lineHeigth();
 
 
+
+    // for (let index = 0; index < lineOptions.length; index += 1) {
+    //     lineOptions[index].addEventListener('click', () => {
+    //         // console.log(lineOptions[index]);
+    //         const heights = lineOptions[index].innerHTML;
+    //         paragraphContent.style.lineHeigth = heights;
+    //         console.log(heights);
+    
+    //     })
+    
+    // }
 }
-
