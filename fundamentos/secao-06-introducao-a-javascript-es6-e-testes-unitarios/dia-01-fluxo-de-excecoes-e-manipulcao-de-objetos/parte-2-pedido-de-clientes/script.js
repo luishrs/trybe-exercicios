@@ -136,9 +136,9 @@ const findPersonByPosition = (position) => {
     // seu código aqui
     let result;
     try {
-        const clientNumber = clients[position];        
+        const clientNumber = clients[position];
         if (clientNumber) {
-           return `Cliente: ${clientNumber.name} email: ${clientNumber.email}`;            
+            return `Cliente: ${clientNumber.name} email: ${clientNumber.email}`;
         }
         checkPersonByPisition(position);
     } catch (error) {
@@ -146,8 +146,29 @@ const findPersonByPosition = (position) => {
     }
 
 };
-console.log(findPersonByPosition(2));
+// console.log(findPersonByPosition(2));
+
+const checkPeopleByStat = (array) => {
+    if (array.length === 0) {
+        throw new Error('Ops, nenhuma pessoa mora nesse estado, tente outro');
+    }
+};
 
 const findPeopleByState = (state) => {
     // seu código aqui
+    try {
+        const PeopleByState = [];
+        for (let index = 0; index < clients.length; index += 1) {
+            const client = clients[index];
+            if (client.address.state === state) {
+                PeopleByState.push(client.name);
+            }
+        }
+        checkPeopleByStat(PeopleByState);
+        return PeopleByState;
+    } catch (error) {
+    return error.message;
+    }
 };
+console.log(findPeopleByState('SP'));
+
