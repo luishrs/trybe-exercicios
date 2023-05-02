@@ -8,7 +8,7 @@ async function handleClick() {
   const cep = inputEl.value;
 
   try {
-    const result = await fetch(`https://viacepinvalid.com.br/ws/${cep}/json/`);
+    const result = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
     const data = await result.json();
 
     preEl.innerHTML = JSON.stringify(data);
